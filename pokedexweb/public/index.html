@@ -15,23 +15,32 @@
     <script>
         function buscarPokemon() {
             const pokemonName = document.getElementById("pokemonName").value;
-            const localImagePath = `public/images/${pokemonName.toLowerCase()}.png`;
+            const apiUrl = `https://pokeapi.co/api/v2/pokemon/${pokemonName.toLowerCase()}`;
 
-            const pokemonInfo = document.getElementById("pokemonInfo");
-            const image = new Image();
-            image.src = localImagePath;
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    const pokemonInfo = document.getElementById("pokemonInfo");
+                    const pokemonImage = new Image();
+                    const localImagePath = `public/images/${pokemonName.toLowerCase()}.png`;
 
-            image.onerror = function() {
-                pokemonInfo.innerHTML = `No se encontró el Pokémon ${pokemonName}`;
-            };
+                    pokemonImage.src = localImagePath;
+                    pokemonImage.onerror = function() {
+                        pokemonImage.src = data.sprites.front_default;
+                    };
 
-            image.onload = function() {
-                pokemonInfo.innerHTML = `
-                    <h2>${pokemonName}</h2>
-                    <img src="${localImagePath}" alt="${pokemonName}">
-                    <!-- Agrega aquí la altura y el peso si lo deseas -->
-                `;
-            };
+                    pokemonInfo.innerHTML = `
+                        <h2>${data.name}</h2>
+                        <img src="${pokemonImage.src}" alt="${data.name}">
+                        <p>Altura: ${data.height} decímetros</p>
+                        <p>Peso: ${data.weight} hectogramos</p>
+                        <!-- Agrega aquí más datos del Pokémon según tus necesidades -->
+                    `;
+                })
+                .catch(error => {
+                    const pokemonInfo = document.getElementById("pokemonInfo");
+                    pokemonInfo.innerHTML = `No se encontró el Pokémon ${pokemonName}`;
+                });
         }
     </script>
 </body>
