@@ -6,7 +6,7 @@ function PokedexSearchBar(props) {
     const { updateApiData } = useData(); 
 
     const handleSearch = () => {
-        const apiUrl = `http://10.100.232.143:3001/pokemon/${searchInput}`;
+        const apiUrl = `http://10.100.232.143:3002/pokemon/name/${searchInput}`;
 
         fetch(apiUrl)
             .then((response) => response.json())

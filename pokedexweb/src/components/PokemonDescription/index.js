@@ -2,7 +2,7 @@ import React from 'react';
 import { useData } from '../../DataContext';
 import '../../index.css';
 
-function PokemonDetails({ name, national_id, weight, height, img_url }) {
+function PokemonDetails({ name, national_id, weight, height, type1, type2, img_url }) {
   return (
     <div className="col">
       <div className="pokemon-details">
@@ -10,6 +10,8 @@ function PokemonDetails({ name, national_id, weight, height, img_url }) {
         <p>ID: {national_id}</p>
         <p>Weight: {weight} kg</p>
         <p>Height: {height} m</p>
+        <p>type1: {type1} m</p>
+        <p>type2: {type2} m</p>
         <img src={img_url} alt={name} />
       </div>
     </div>
@@ -21,16 +23,16 @@ function PreEvolution({ pre_evolution }) {
     return null;
   }
 
-  const { name, national_id, weight, height, img_url } = pre_evolution;
+  const { name, national_id, weight, height,type1, type2, img_url } = pre_evolution;
   return (
     <div className="col">
       <div>
         <h3>Pre-evolution</h3>
-        <p>Name: {name}</p>
-        <p>ID: {national_id}</p>
-        <p>Weight: {weight} kg</p>
-        <p>Height: {height} m</p>
-        <img src={img_url} alt={name} />
+        <p>Name: {pre_evolution.name}</p>
+        <p>ID: {pre_evolution.national_id}</p>
+        <p>type1: {pre_evolution.type1} m</p>
+        <p>type2: {pre_evolution.type2} m</p>
+        <img src={pre_evolution.img_url} alt={name} />
       </div>
     </div>
   );
@@ -50,8 +52,8 @@ function Evolutions({ evolutions }) {
               <div className="col" key={index}>
                 <p>Name: {evolution.name}</p>
                 <p>ID: {evolution.national_id}</p>
-                <p>Weight: {evolution.weight} kg</p>
-                <p>Height: {evolution.height} m</p>
+                <p>type1: {evolution.type1} m</p>
+                <p>type2: {evolution.type2} m</p>
                 <img src={evolution.img_url} alt={evolution.name} />
               </div>
             ))}
