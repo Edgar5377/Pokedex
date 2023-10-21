@@ -20,9 +20,9 @@ function BaseStats(props) {
           <h3>Stats</h3>
           <p>Attack: {attack}</p>
           <p>Defense: {def}</p>
-          <p>Special Defense: {s_def} kg</p>
-          <p>Special Attack: {s_attack} m</p>
-          <p>Speed: {speed} m</p>
+          <p>Special Defense: {s_def}</p>
+          <p>Special Attack: {s_attack}</p>
+          <p>Speed: {speed}</p>
         </div>
       );
 }
