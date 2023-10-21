@@ -1,7 +1,9 @@
+// PokemonDescription.js
 import React from 'react';
 import { useData } from '../../DataContext';
+import '../../index.css';
 
-function PokemonDetails({ name, national_id, weight, height, img_url }) {
+export function PokemonDetails({ name, national_id, weight, height, img_url }) {
   return (
     <div className="pokemon-details">
       <h2>{name}</h2>
@@ -13,7 +15,7 @@ function PokemonDetails({ name, national_id, weight, height, img_url }) {
   );
 }
 
-function PreEvolution({ pre_evolution }) {
+export function PreEvolution({ pre_evolution }) {
   if (!pre_evolution) {
     return null;
   }
@@ -31,7 +33,7 @@ function PreEvolution({ pre_evolution }) {
   );
 }
 
-function Evolutions({ evolutions }) {
+export function Evolutions({ evolutions }) {
   if (!evolutions || evolutions.length === 0) {
     return null;
   }
@@ -52,7 +54,7 @@ function Evolutions({ evolutions }) {
   );
 }
 
-function PokemonDescription(props) {
+export default function PokemonDescription(props) {
   const { apiData } = useData();
 
   if (!apiData) {
@@ -63,15 +65,15 @@ function PokemonDescription(props) {
     );
   }
 
-  const {pre_evolution, evolutions } = apiData;
+  const { pre_evolution, evolutions } = apiData;
 
   return (
     <div className="pokemon-description-container">
-      <PokemonDetails {...apiData} />
-      <PreEvolution pre_evolution={pre_evolution} />
-      <Evolutions evolutions={evolutions} />
+      <div className="horizontal-functions">
+        <PokemonDetails {...apiData} />
+        <PreEvolution pre_evolution={pre_evolution} />
+        <Evolutions evolutions={evolutions} />
+      </div>
     </div>
   );
 }
-
-export default PokemonDescription;
