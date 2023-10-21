@@ -37,27 +37,30 @@ function PreEvolution({ pre_evolution }) {
 }
 
 function Evolutions({ evolutions }) {
-  if (!evolutions || evolutions.length === 0) {
-    return null;
-  }
-
-  return (
-    <div className="col">
-      <div>
-        <h3>Evolutions</h3>
-        {evolutions.map((evolution, index) => (
-          <div key={index}>
-            <p>Name: {evolution.name}</p>
-            <p>ID: {evolution.national_id}</p>
-            <p>Weight: {evolution.weight} kg</p>
-            <p>Height: {evolution.height} m</p>
-            <img src={evolution.img_url} alt={evolution.name} />
+    if (!evolutions || evolutions.length === 0) {
+      return null;
+    }
+  
+    return (
+      <div className="col">
+        <div>
+          <h3>Evolutions</h3>
+          <div className="row">
+            {evolutions.map((evolution, index) => (
+              <div className="col" key={index}>
+                <p>Name: {evolution.name}</p>
+                <p>ID: {evolution.national_id}</p>
+                <p>Weight: {evolution.weight} kg</p>
+                <p>Height: {evolution.height} m</p>
+                <img src={evolution.img_url} alt={evolution.name} />
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
-    </div>
-  );
-}
+    );
+  }
+  
 
 function PokemonDescription(props) {
   const { apiData } = useData();
