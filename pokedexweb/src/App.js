@@ -5,9 +5,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import SelectionBar from "./components/SelectionBar";
 import BaseStats from "./components/BaseStats";
-import PokemonDetails from "./components/PokemonDescription";
-import PreEvolution from "./components/PokemonDescription";
-import Evolutions from "./components/PokemonDescription";
+import PokemonDescription from "./components/PokemonDescription";
 import TypeDefense from "./components/TypeDefense";
 import './index.css'
 
@@ -23,13 +21,7 @@ function App() {
         <Col className="border" xs={9}>
           <Row className="border" style={{ height: "50%"}}>
             <div className="horizontal-pokemon-description">
-              <PokemonDetails />
-            </div>
-            <div className="horizontal-pokemon-description">
-              <PreEvolution />
-            </div>
-            <div className="horizontal-pokemon-description">
-              <Evolutions />
+              <PokemonDescription />
             </div>
           </Row>
           <Row className="border" style={{ height: "50%" }}>
