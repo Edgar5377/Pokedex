@@ -10,7 +10,7 @@ import Col from "react-bootstrap/Col";
 import SelectionBar from "./components/SelectionBar";
 import BaseStats from "./components/BaseStats";
 import PokemonDescription from "./components/PokemonDescription";
-import PokedexSearchBar from "./components/PokedexSearchBar";
+//import PokedexSearchBar from "./components/PokedexSearchBar";
 import TypeDefense from "./components/TypeDefense";
 // -----------------------------------
 
@@ -19,7 +19,7 @@ function App() {
         <Container style={{ height: "100vh" }}>
             <Row style={{ height: "100%" }}>
                 <Col className="border" xs={3}>
-                    <SelectionBar />
+                    <SelectionBar/>
                 </Col>
 
                 <Col className="border" xs={9}>
